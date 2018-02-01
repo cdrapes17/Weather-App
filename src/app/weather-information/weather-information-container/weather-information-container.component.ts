@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { WeatherInformationService } from '../services/weather-information.service';
+import { Weather } from '../../shared/models/weather.model';
 
 @Component({
   selector: 'app-weather-information-container',
@@ -11,13 +12,16 @@ export class WeatherInformationContainerComponent implements OnInit {
   constructor(private weatherService: WeatherInformationService) { }
 
   weather;
+  @Input()
+  cityToSearch;
 
   ngOnInit() {
     this.getCityTemperature();
   }
 
   getCityTemperature() {
-    this.weatherService.getCityTemperature().subscribe(
+    this.weatherService.getCityTemperature(this.cityToSearch).subscribe(
       data => this.weather = data
     )}
+
 }

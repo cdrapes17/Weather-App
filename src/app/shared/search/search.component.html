@@ -1,3 +1,19 @@
-<p>
-  search works!
-</p>
+<div class="search-container">
+
+    <form [formGroup]="SearchForm" name="SearchForm">
+        <div>
+          <label for="city">City: </label>
+          <input
+            class="form-input"
+            formControlName="city"
+            id="city"
+          >
+        <div>
+          <button type="button" class="button" title="Search" (click)=searchForCity(SearchForm.value)>Search
+          </button>
+        </div>
+      </div>
+    </form>
+  </div>
+
+  

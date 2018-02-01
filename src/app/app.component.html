@@ -4,5 +4,9 @@
     Welcome to {{ title }}!
   </h1>
 </div>
-<app-weather-information-container></app-weather-information-container>
+<app-search
+(cityEmitter)="cityToSearch($event)"
+></app-search>
+<app-weather-information-container
+></app-weather-information-container>
 <router-outlet></router-outlet>
