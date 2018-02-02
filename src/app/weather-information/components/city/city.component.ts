@@ -17,13 +17,15 @@ export class CityComponent implements OnInit, OnChanges {
   constructor() { }
 
   ngOnInit() {
-    
+
   }
 
   ngOnChanges() {
-    this.city = this.weather.city;
-    this.country = this.weather.country;
-    this.temperature = this.weather.temperature;
+    if (this.weather) {
+      this.city = this.weather.city;
+      this.country = this.weather.country;
+      this.temperature = this.weather.temperature;
+    }
   }
 
 }

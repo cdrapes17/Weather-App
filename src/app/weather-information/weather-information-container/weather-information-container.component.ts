@@ -1,6 +1,8 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { WeatherInformationService } from '../services/weather-information.service';
 import { Weather } from '../../shared/models/weather.model';
+import { Observable } from 'rxjs/Observable';
+
 
 @Component({
   selector: 'app-weather-information-container',
@@ -11,17 +13,12 @@ export class WeatherInformationContainerComponent implements OnInit {
 
   constructor(private weatherService: WeatherInformationService) { }
 
-  weather;
-  @Input()
-  cityToSearch;
+  weather$ : Observable<Weather>
 
   ngOnInit() {
-    this.getCityTemperature();
+    this.weather$ = this.weatherService.getCityTemperature('London');
   }
 
-  getCityTemperature() {
-    this.weatherService.getCityTemperature(this.cityToSearch).subscribe(
-      data => this.weather = data
-    )}
+
 
 }
