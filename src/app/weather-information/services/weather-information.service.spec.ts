@@ -2,7 +2,7 @@ import { TestBed, inject } from '@angular/core/testing';
 
 import { WeatherInformationService } from './weather-information.service';
 
-describe('WeatherInformationServiceService', () => {
+describe('WeatherInformationService', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
       providers: [WeatherInformationService]
