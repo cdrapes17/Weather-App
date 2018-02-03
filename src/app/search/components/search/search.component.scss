@@ -1,19 +1,40 @@
 .search-container{
   font-family: 'Roboto', sans-serif;
   font-size: 20px;
-}
-
+  margin: 20px;
+  
+  .city-input{
+    position: relative;
+    display: inline;
+    input{
+      border-radius: 10px;
+      height: 2em;
+      width: 17.5em;
+      &:focus ~ label {
+      transform: translateY(-30px);
+      }
+      &:valid ~ label {
+        transform: translateY(-30px);
+    }
+  }
+      label{
+      transition: transform 0.5s;
+      position: absolute;
+      padding: 10px;
+      left: 0px;
+    }
+  }
 
 .button {
   color: #0b4cbc;
   border: 2px solid;
-  display: inline-block;
   margin-left: 5px;
   margin: 0.5em;
   padding: 5px;;
   transition: transform 0.5s;
   &:hover {
     transform: translateY(-5px);
-    box-shadow: 0 5px 15px #8aadea;
+    box-shadow: 0 5px 15px #01215a;
+    }
   }
 }
