@@ -1,3 +1,5 @@
+$lightCloud: #ded6d6;
+
 .city-component{
     height: 15EM;
     width: 15EM;
@@ -7,6 +9,8 @@
     background-color: #c1edf4;
     padding: 10px;
     margin: 1em;
+    position: relative;
+    
 }
 
 .city{
@@ -20,6 +24,7 @@
     display: block;
     padding: 10px;
     font-size: 5em;
+    margin-top: 30px;
 }
 
 .weather{
@@ -33,4 +38,43 @@
     float: right;
     position: relative;
     left: -12px;
+}
+
+.weather-icon{
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    right: 25px;
+    top: 15px;
+    animation: weather-icon-move 5s ease-in-out infinite;
+}
+
+.sun { 
+    background: yellow; 
+	border-radius: 50%; 
+	box-shadow: rgba(255,255,0,0.1) 0 0 0 4px;
+}
+
+.cloud {
+    margin-right: 25px;
+    background: $lightCloud;
+    border-radius: 20px;
+    width: 25px;
+    height: 25px;
+    margin-top: 10px;
+    box-shadow: $lightCloud 24px -6px 0 2px, $lightCloud 10px 5px 0 5px, $lightCloud 30px 5px 0 2px, $lightCloud 11px -8px 0 -3px, $lightCloud 25px 11px 0 -1px;
+}
+
+.rain {
+
+}
+
+.snow {
+
+}
+
+@keyframes weather-icon-move {
+	50% { 
+        transform: translateY(-8px); 
+    }
 }

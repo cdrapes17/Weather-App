@@ -1,6 +1,12 @@
 <div class="weather-component">
   <div class="city-component" *ngFor="let cityWeather of weather">
-    <span class="weather">{{cityWeather.weather}}</span>
+    <!-- <span class="weather">{{cityWeather.weather}}</span> -->
+    
+    <div class="weather-icon" 
+      [class.sun]="cityWeather.weather === 'Clear'"
+      [class.cloud]="cityWeather.weather === 'Clouds'"
+    >
+  </div>
     <span class="temperature">{{cityWeather.temperature}}°c</span>
     <span class="city">{{cityWeather.city}}</span>
     <span class="country">{{cityWeather.country}}</span>
