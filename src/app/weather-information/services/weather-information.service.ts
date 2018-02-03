@@ -4,9 +4,6 @@ import { HttpClient } from '@angular/common/http';
 @Injectable()
 export class WeatherInformationService {
 
-
   constructor() { }
-
-
 
 }
