@@ -1,21 +1,36 @@
 .city-component{
-    height: 300px;
-    width: 300px;
+    height: 15EM;
+    width: 15EM;
     display: inline-block;
-
+    border: 2px solid black;
+    border-radius: 45px;
+    background-color: #c1edf4;
+    padding: 10px;
+    margin: 1em;
 }
 
 .city{
     display: block;
-    padding: 10px;
+    padding: 5px 10px 0px;
+    font-size: 2.5EM;
+    margin-top: 5px;
 }
 
 .temperature{
     display: block;
     padding: 10px;
+    font-size: 5em;
 }
 
 .weather{
     display: block;
     padding: 10px;
+}
+
+.country{
+    display: block;
+    text-transform: uppercase;
+    float: right;
+    position: relative;
+    left: -12px;
 }

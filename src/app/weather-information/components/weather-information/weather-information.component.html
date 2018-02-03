@@ -1,7 +1,8 @@
 <div class="weather-component">
-  <div class="city-component" *ngFor="let city of weather">
-    <span class="city">City: {{city.city}}</span>
-    <span class="temperature">Temperature: {{city.temperature}}</span>
-    <span class="weather">Weather: {{city.weather}}</span>
+  <div class="city-component" *ngFor="let cityWeather of weather">
+    <span class="weather">{{cityWeather.weather}}</span>
+    <span class="temperature">{{cityWeather.temperature}}°c</span>
+    <span class="city">{{cityWeather.city}}</span>
+    <span class="country">{{cityWeather.country}}</span>
   </div>
 </div>

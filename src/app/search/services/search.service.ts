@@ -14,8 +14,9 @@ import { ToastsManager } from 'ng2-toastr/ng2-toastr';
 
 export interface WeatherModel {
   city: string;
-  temperature: string;
+  temperature: number;
   weather: string;
+  country: string;
 }
 
 @Injectable()
@@ -29,10 +30,12 @@ export class SearchService {
   getWeather(city: string) {
     return this.http.get(`http://api.openweathermap.org/data/2.5/weather?q=${city}&appid=164b4792bbb9d92dde20e42d2a6cebac&units=metric`)
       .map((res) => {
+        console.log(res)
         const weather: WeatherModel = {
           city: res['name'],
-          temperature: res['main']['temp'],
-          weather: res['weather'][0]['main']
+          temperature: Math.round(res['main']['temp']),
+          weather: res['weather'][0]['main'],
+          country: res['sys']['country']
         };
         return weather;
       })
