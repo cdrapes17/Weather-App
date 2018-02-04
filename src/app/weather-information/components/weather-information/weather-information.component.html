@@ -5,6 +5,7 @@
     <div class="weather-icon" 
       [class.sun]="cityWeather.weather === 'Clear'"
       [class.cloud]="cityWeather.weather === 'Clouds'"
+      [class.rain]="cityWeather.weather === 'Rain'"
     >
   </div>
     <span class="temperature">{{cityWeather.temperature}}°c</span>

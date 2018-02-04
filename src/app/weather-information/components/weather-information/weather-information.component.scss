@@ -1,8 +1,9 @@
 $lightCloud: #ded6d6;
+$rain: hsl(205, 83%, 48%);
 
 .city-component{
-    height: 15EM;
-    width: 15EM;
+    height: auto;
+    width: 18EM;
     display: inline-block;
     border: 2px solid black;
     border-radius: 45px;
@@ -66,7 +67,20 @@ $lightCloud: #ded6d6;
 }
 
 .rain {
-
+    @extend .cloud;
+    &:after {
+        content: "";
+        position: absolute;
+        border-radius: 10px;
+        background-color: transparent;
+        width: 4px;
+        height: 11px;
+        left: 0;
+        top: 24px;
+    
+        transform: rotate(30deg);
+        animation: rain 800ms ease-in-out infinite alternate;
+    }
 }
 
 .snow {
@@ -76,5 +90,20 @@ $lightCloud: #ded6d6;
 @keyframes weather-icon-move {
 	50% { 
         transform: translateY(-8px); 
+    }
+}
+
+@keyframes rain {
+    from {
+        box-shadow: 
+        $rain 8px 0px,
+		$rain 32px -6px, 
+		$rain 20px 0px;
+    }
+    to {
+        box-shadow: 
+        $rain 8px 6px,
+		$rain 32px 0px, 
+		$rain 20px 6px;
     }
 }
