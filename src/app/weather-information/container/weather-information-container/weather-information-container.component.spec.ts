@@ -2,7 +2,6 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { WeatherInformationContainerComponent } from './weather-information-container.component';
 import { WeatherInformationComponent } from '../../components/weather-information/weather-information.component';
-import { WeatherInformationService } from '../../services/weather-information.service';
 import { SearchService } from '../../../search/services/search.service';
 import { HttpClientModule } from '@angular/common/http';
 import { ToastModule } from 'ng2-toastr';
@@ -18,7 +17,7 @@ describe('WeatherInformationContainerComponent', () => {
         ToastModule.forRoot()
       ],
       declarations: [WeatherInformationContainerComponent, WeatherInformationComponent],
-      providers: [WeatherInformationService, SearchService]
+      providers: [SearchService]
     })
       .compileComponents();
   }));

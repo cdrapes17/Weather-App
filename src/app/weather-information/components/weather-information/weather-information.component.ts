@@ -13,7 +13,10 @@ export class WeatherInformationComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
+  }
 
+  displayWeatherText(weather){
+    return weather.weather === 'Clouds' || weather.weather === 'Rain' || weather.weather === 'Clear';
   }
 
 }

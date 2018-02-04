@@ -1,6 +1,6 @@
 <div class="weather-component">
   <div class="city-component" *ngFor="let cityWeather of weather">
-    <!-- <span class="weather">{{cityWeather.weather}}</span> -->
+    <span class="weather" *ngIf="!displayWeatherText(cityWeather)">{{cityWeather.weather}}</span>
     
     <div class="weather-icon" 
       [class.sun]="cityWeather.weather === 'Clear'"

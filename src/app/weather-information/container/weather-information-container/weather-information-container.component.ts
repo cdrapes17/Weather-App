@@ -1,6 +1,7 @@
-import { WeatherInformationService } from './../../services/weather-information.service';
 import { Component, OnInit } from '@angular/core';
-import { SearchService } from '../../../search/services/search.service';
+import { SearchService, WeatherModel } from '../../../search/services/search.service';
+import { Observable } from 'rxjs/Observable';
+import { BehaviorSubject } from 'rxjs/BehaviorSubject';
 
 
 @Component({
@@ -9,9 +10,9 @@ import { SearchService } from '../../../search/services/search.service';
   styleUrls: ['./weather-information-container.component.scss']
 })
 export class WeatherInformationContainerComponent implements OnInit {
-  weather$;
+  weather$: BehaviorSubject<WeatherModel[]>;
 
-  constructor(private weatherService: WeatherInformationService, private searchService: SearchService) { }
+  constructor(private searchService: SearchService) { }
 
   ngOnInit() {
     this.weather$ = this.searchService.getAllWeather();

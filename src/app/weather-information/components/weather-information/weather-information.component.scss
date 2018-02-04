@@ -29,8 +29,9 @@ $rain: hsl(205, 83%, 48%);
 }
 
 .weather{
-    display: block;
     padding: 10px;
+    position: absolute;
+    right: 20px;
 }
 
 .country{
