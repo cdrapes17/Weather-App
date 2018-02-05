@@ -46,9 +46,9 @@ export class SearchService {
       })
       .catch((err) => {
         this.toastr.error(`Please check spelling and try again.`, `City: '${city}'  not found`);
-        return Observable.of(err)
+        return Observable.of(err);
       })
-      .subscribe()
+      .subscribe();
 
   }
 
