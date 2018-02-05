@@ -12,9 +12,11 @@
       width: 17.5em;
       &:focus ~ label {
       transform: translateY(-30px);
+      color: white;
       }
       &:valid ~ label {
         transform: translateY(-30px);
+        color: white;
     }
   }
       label{
@@ -32,9 +34,11 @@
   margin: 0.5em;
   padding: 5px;
   transition: transform 0.5s;
+  border-radius: 5px;
   &:hover {
     transform: translateY(-5px);
     box-shadow: 0 5px 15px #01215a;
     }
   }
+  
 }
