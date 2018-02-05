@@ -1,4 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { WeatherModel } from '../../../search/services/search.service';
 
 @Component({
   selector: 'app-weather-information',
@@ -7,12 +8,15 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class WeatherInformationComponent implements OnInit {
 
-  @Input() weather;
+  @Input() weather: WeatherModel;
 
   constructor() { }
 
   ngOnInit() {
+  }
 
+  displayWeatherText(weather){
+    return weather.weather === 'Clouds' || weather.weather === 'Rain' || weather.weather === 'Clear';
   }
 
 }

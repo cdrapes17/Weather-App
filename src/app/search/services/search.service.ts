@@ -6,22 +6,25 @@ import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/do';
 import 'rxjs/add/operator/combineLatest';
 import 'rxjs/add/operator/take';
+import 'rxjs/add/operator/catch';
+import 'rxjs/add/observable/of';
 import { Observable } from 'rxjs/Observable';
 import { BehaviorSubject } from 'rxjs/BehaviorSubject';
+import { ToastsManager } from 'ng2-toastr/ng2-toastr';
 
 export interface WeatherModel {
   city: string;
-  temperature: string;
+  temperature: number;
   weather: string;
+  country: string;
 }
 
 @Injectable()
 export class SearchService {
 
-  weatherStorage;
   weatherStorage$ = new BehaviorSubject([]);
 
-  constructor(private http: HttpClient) {
+  constructor(private http: HttpClient, public toastr: ToastsManager) {
   }
 
   getWeather(city: string) {
@@ -29,8 +32,9 @@ export class SearchService {
       .map((res) => {
         const weather: WeatherModel = {
           city: res['name'],
-          temperature: res['main']['temp'],
-          weather: res['weather'][0]['main']
+          temperature: Math.round(res['main']['temp']),
+          weather: res['weather'][0]['main'],
+          country: res['sys']['country']
         };
         return weather;
       })
@@ -40,7 +44,12 @@ export class SearchService {
         const combined = [...weatherStorage, weatherInfo];
         this.weatherStorage$.next(combined);
       })
-      .subscribe();
+      .catch((err) => {
+        this.toastr.error(`Please check spelling and try again.`, `City: '${city}'  not found`);
+        return Observable.of(err)
+      })
+      .subscribe()
+
   }
 
   getAllWeather() {

@@ -1,11 +1,11 @@
 <div class="search-container">
-
   <form [formGroup]="SearchForm" (ngSubmit)="getWeatherFromCity(SearchForm.value)" name="SearchForm">
-    <div class="row">
-        <label for="searchCity">City </label>
-        <input class="form-input" formControlName="searchCity" id="searchCity">
-          <button class="button" title="Search">Search
-          </button>
+      <div class='city-input'>
+      
+      <input class="form-input" formControlName="searchCity" id="searchCity" required #cityInput>
+      <label for="searchCity">City </label>
     </div>
+      <button class="button" title="Search">Search
+      </button>
   </form>
 </div>
