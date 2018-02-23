@@ -12,7 +12,7 @@ export class SearchComponent implements OnInit {
   public SearchForm: FormGroup;
   @ViewChild('cityInput') cityInput: ElementRef;
   constructor(private _fb: FormBuilder, private searchService: SearchService) { }
-  
+
 
   ngOnInit() {
     this.SearchForm = this._fb.group({
@@ -22,10 +22,10 @@ export class SearchComponent implements OnInit {
 
   getWeatherFromCity(payload) {
     this.searchService.getWeather(payload.searchCity);
-    this.clearInput(this.cityInput)
+    this.clearInput(this.cityInput);
   }
 
-  clearInput(element: ElementRef){
+  clearInput(element: ElementRef) {
     element.nativeElement.value = '';
   }
 

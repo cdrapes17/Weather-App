@@ -18,4 +18,9 @@ export class WeatherInformationContainerComponent implements OnInit {
     this.weather$ = this.searchService.getAllWeather();
   }
 
+  removeWeather(id) {
+    // console.log(id);
+    this.searchService.removeWeather(id);
+  }
+
 }

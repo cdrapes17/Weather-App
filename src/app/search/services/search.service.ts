@@ -8,6 +8,7 @@ import 'rxjs/add/operator/combineLatest';
 import 'rxjs/add/operator/take';
 import 'rxjs/add/operator/catch';
 import 'rxjs/add/observable/of';
+import { filter } from 'rxjs/operators';
 import { Observable } from 'rxjs/Observable';
 import { BehaviorSubject } from 'rxjs/BehaviorSubject';
 import { ToastsManager } from 'ng2-toastr/ng2-toastr';
@@ -17,12 +18,14 @@ export interface WeatherModel {
   temperature: number;
   weather: string;
   country: string;
+  id: number;
 }
 
 @Injectable()
 export class SearchService {
 
   weatherStorage$ = new BehaviorSubject([]);
+  weatherId = 0;
 
   constructor(private http: HttpClient, public toastr: ToastsManager) {
   }
@@ -34,7 +37,8 @@ export class SearchService {
           city: res['name'],
           temperature: Math.round(res['main']['temp']),
           weather: res['weather'][0]['main'],
-          country: res['sys']['country']
+          country: res['sys']['country'],
+          id: this.weatherId++
         };
         return weather;
       })
@@ -46,9 +50,18 @@ export class SearchService {
       })
       .catch((err) => {
         this.toastr.error(`Please check spelling and try again.`, `City: '${city}'  not found`);
-        return Observable.of(err)
+        return Observable.of(err);
       })
-      .subscribe()
+      .subscribe();
+  }
+
+  removeWeather(id: number) {
+    return this.weatherStorage$
+      .take(1)
+      .subscribe(weatherArray => {
+        weatherArray = weatherArray.filter(weather => weather.id !== id);
+        this.weatherStorage$.next(weatherArray);
+      }).unsubscribe();
 
   }
 

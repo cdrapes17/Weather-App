@@ -16,8 +16,7 @@ import { CustomToastrOption } from './custom-toastr-options';
 
 @NgModule({
   declarations: [
-    AppComponent,
-
+    AppComponent
   ],
   imports: [
     BrowserModule,
@@ -27,7 +26,6 @@ import { CustomToastrOption } from './custom-toastr-options';
     HttpClientModule,
     ToastModule.forRoot(),
     BrowserAnimationsModule
-
   ],
   providers: [{provide: ToastOptions, useClass: CustomToastrOption}],
   bootstrap: [AppComponent]
