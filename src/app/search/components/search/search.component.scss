@@ -1,3 +1,8 @@
+%transformed-text {
+  transform: translateY(-30px);
+  color: white;
+}
+
 .search-container{
   font-family: 'Roboto', sans-serif;
   font-size: 20px;
@@ -11,12 +16,10 @@
       height: 2em;
       width: 17.5em;
       &:focus ~ label {
-      transform: translateY(-30px);
-      color: white;
+        @extend %transformed-text;
       }
       &:valid ~ label {
-        transform: translateY(-30px);
-        color: white;
+        @extend %transformed-text;
     }
   }
       label{
@@ -42,3 +45,4 @@
   }
   
 }
+

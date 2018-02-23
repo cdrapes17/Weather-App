@@ -67,6 +67,15 @@ $rain: hsl(205, 83%, 48%);
     box-shadow: $lightCloud 24px -6px 0 2px, $lightCloud 10px 5px 0 5px, $lightCloud 30px 5px 0 2px, $lightCloud 11px -8px 0 -3px, $lightCloud 25px 11px 0 -1px;
 }
 
+.fa{
+    position: absolute;
+    left: 15px;
+    top: 15px;
+    cursor: pointer;
+    font-size: 16px;
+    color: #78ed76;
+}
+
 .rain {
     @extend .cloud;
     &:after {
@@ -82,10 +91,6 @@ $rain: hsl(205, 83%, 48%);
         transform: rotate(30deg);
         animation: rain 800ms ease-in-out infinite alternate;
     }
-}
-
-.snow {
-
 }
 
 @keyframes weather-icon-move {

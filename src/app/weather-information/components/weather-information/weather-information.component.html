@@ -1,7 +1,7 @@
 <div class="weather-component">
   <div class="city-component" *ngFor="let cityWeather of weather">
     <span class="weather" *ngIf="!displayWeatherText(cityWeather)">{{cityWeather.weather}}</span>
-    
+    <i class="fa fa-times-circle" (click)="removeWeather(cityWeather.id)"></i>
     <div class="weather-icon" 
       [class.sun]="cityWeather.weather === 'Clear'"
       [class.cloud]="cityWeather.weather === 'Clouds'"
@@ -13,3 +13,4 @@
     <span class="country">{{cityWeather.country}}</span>
   </div>
 </div>
+
