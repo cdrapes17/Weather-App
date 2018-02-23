@@ -1,5 +1,5 @@
 <div class="weather-component">
-  <div class="city-component" *ngFor="let cityWeather of weather">
+  <div class="city-component" *ngFor="let cityWeather of weather" [@animation]="weather">
     <span class="weather" *ngIf="!displayWeatherText(cityWeather)">{{cityWeather.weather}}</span>
     <i class="fa fa-times-circle" (click)="removeWeather(cityWeather.id)"></i>
     <div class="weather-icon" 
