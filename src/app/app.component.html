@@ -3,7 +3,10 @@
     <h1>
       {{ title }}!
     </h1>
+    <button class='button' routerLink="/current-forecast" routerLinkActive="active">Current forecast</button>
+    <button class='button' routerLink="/five-day-forecast" routerLinkActive="active">5 day forecast</button>
   </div>
-  <app-search></app-search>
-  <app-weather-information-container></app-weather-information-container>
+  <div [@routerTransition]="getState(o)">
+    <router-outlet #o='outlet'></router-outlet>
+  </div>
 </div>

@@ -2,7 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { SearchService, WeatherModel } from '../../../search/services/search.service';
 import { Observable } from 'rxjs/Observable';
 import { BehaviorSubject } from 'rxjs/BehaviorSubject';
-
+import { trigger, transition, query, useAnimation, state } from '@angular/animations';
+import { leftToRight, fadeAnimation } from '../../../shared/animations/animations';
 
 @Component({
   selector: 'app-weather-information-container',
@@ -19,7 +20,6 @@ export class WeatherInformationContainerComponent implements OnInit {
   }
 
   removeWeather(id) {
-    // console.log(id);
     this.searchService.removeWeather(id);
   }
 

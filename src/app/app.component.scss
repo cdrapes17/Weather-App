@@ -4,6 +4,20 @@
     font-family: 'Roboto', sans-serif;
 font-size: 14px;
 
+.button {
+    color: #0b4cbc;
+    border: 2px solid;
+    margin-left: 5px;
+    margin: 0.5em;
+    padding: 5px;
+    transition: transform 0.5s;
+    border-radius: 5px;
+    &:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 5px 15px #01215a;
+      }
+    }
+
 .header{
     text-align: center;
 }
