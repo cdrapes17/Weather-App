@@ -12,6 +12,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { ToastModule, ToastOptions } from 'ng2-toastr/';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CustomToastrOption } from './custom-toastr-options';
+import { LottieAnimationViewModule } from 'ng-lottie';
 
 
 @NgModule({
@@ -25,7 +26,8 @@ import { CustomToastrOption } from './custom-toastr-options';
     SearchModule,
     HttpClientModule,
     ToastModule.forRoot(),
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    LottieAnimationViewModule.forRoot()
   ],
   providers: [{provide: ToastOptions, useClass: CustomToastrOption}],
   bootstrap: [AppComponent]

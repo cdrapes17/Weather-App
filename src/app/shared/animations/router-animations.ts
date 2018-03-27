@@ -1,5 +1,4 @@
 import { trigger, transition, query, style, group, animate, stagger, sequence, useAnimation } from "@angular/animations";
-import { bounce } from "./animations";
 
 // optional set to avoid throwing errors  if the query returns empty results
 export const routerTransition = trigger('routerTransition', [

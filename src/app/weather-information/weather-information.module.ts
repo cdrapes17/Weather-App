@@ -5,12 +5,13 @@ import { WeatherInformationContainerComponent } from './container/weather-inform
 import { FiveDayForecastContainerComponent } from './container/five-day-forecast/five-day-forecast-container/five-day-forecast-container.component';
 import { FiveDayForecastComponent } from './components/five-day-forecast/five-day-forecast/five-day-forecast.component';
 import { SearchModule } from '../search/search.module';
-
+import { LottieAnimationViewModule } from 'ng-lottie';
 
 @NgModule({
   imports: [
     CommonModule,
-    SearchModule
+    SearchModule,
+    LottieAnimationViewModule.forRoot()
   ],
   declarations: [WeatherInformationComponent, WeatherInformationContainerComponent, FiveDayForecastContainerComponent, FiveDayForecastComponent],
   exports: [WeatherInformationComponent, WeatherInformationContainerComponent]
