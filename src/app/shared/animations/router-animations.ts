@@ -8,11 +8,15 @@ export const routerTransition = trigger('routerTransition', [
             { optional: true }),
 
         sequence([
+            query(':enter', [
+                style({ transform: 'translateX(100%)'}),
+            ]),
             query(':leave .city-component', stagger(300, [
                 style({transform: 'translateY(0px)', opacity: 1}),
                 animate('1s cubic-bezier(.75,-0.48,.26,1.52)',
                 style({transform: 'translateY(100px)', opacity: 0}))   
             ]), {optional: true}),
+
         group([
             query(':enter', [
                 style({ transform: 'translateX(100%)'}),
